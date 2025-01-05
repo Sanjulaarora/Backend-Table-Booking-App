@@ -6,20 +6,19 @@ const Bookings = require("./models/booking");
 const cors = require("cors");
 const router = require("./routes/router");
 
-// Define allowed origins
 const corsOptions = {
-    origin: 'http://localhost:3000', // Frontend URL
-    methods: ['GET', 'POST', 'OPTIONS'],
-    credentials: true, // Allow credentials (cookies, headers)
+    origin: 'http://localhost:3000',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true,
 };
 
 app.use(express.json());
 app.use(cors(corsOptions));
-app.use(router);
-
-app.options('*', cors(corsOptions)); // Handle OPTIONS requests
-
 app.use("/", router);
+
+app.get("/", (req, res) => {
+    res.send("Table Booking App server is up and running!");
+});
 
 const port = process.env.PORT || 8088;
 
