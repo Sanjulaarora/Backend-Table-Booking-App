@@ -7,7 +7,7 @@ const cors = require("cors");
 const router = require("./routes/router");
 
 const corsOptions = {
-    origin: 'http://localhost:3000',
+    origin: ['https://table-booking-app-inky.vercel.app', 'http://localhost:3000'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
 };
